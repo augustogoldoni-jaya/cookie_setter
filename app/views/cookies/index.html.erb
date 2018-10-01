@@ -1,13 +1,21 @@
 <h1>Cookies:</h1>
+
+<%= form_for(@cookie, url: cookies_path, html: { method: 'post' }) do |f| %>
+  <%= f.text_field(:key) %>
+  <%= f.text_area(:value) %>
+  <%= f.submit('Create Cookie!') %>
+<% end %>
+<br/>
+<h3>Present cookies</h3>
 <table>
   <tr>
-    <th>Key</th>
-    <th>Value</th>
+    <th class="key">Key</th>
+    <th class="value">Value</th>
   </tr>
   <%- @cookies.to_a.each do |key, value| %>
     <tr>
-      <td><%= key %></td>
-      <td><%= value %></td>
+      <td class="key"><%= key %></td>
+      <td class="value"><%= value %></td>
     </tr>
   <%- end %>
 </table>
@@ -15,9 +23,22 @@
 <style media="screen">
   table, th, td {
    border: 1px solid black;
+   word-wrap: break-word;         /* All browsers since IE 5.5+ */
+   overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+   width: 100%;
   }
-  
+
   table {
-    width: 80%;
+    width: 100%;
+    max-width: 1280px;
+    table-layout: fixed;
+  }
+
+  .key {
+    width: 30%;
+  }
+
+  .value {
+    width: 70%;
   }
 </style>

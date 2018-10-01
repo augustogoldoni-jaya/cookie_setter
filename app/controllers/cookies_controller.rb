@@ -12,6 +12,11 @@ class CookiesController < ApplicationController
     redirect_to cookies_path
   end
 
+  def destroy
+    cookies.delete(params[:id])
+    redirect_to cookies_path
+  end
+
   private
 
   def cookies_params

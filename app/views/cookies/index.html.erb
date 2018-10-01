@@ -14,7 +14,11 @@
   </tr>
   <%- @cookies.to_a.each do |key, value| %>
     <tr>
-      <td class="key"><%= key %></td>
+      <td class="key">
+        <%= key %>
+        <br/>
+        <%= link_to 'Destroy', cooky_path(id: key), method: 'delete' %>
+      </td>
       <td class="value"><%= value %></td>
     </tr>
   <%- end %>

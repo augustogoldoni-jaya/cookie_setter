@@ -1,0 +1,23 @@
+<h1>Cookies:</h1>
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Value</th>
+  </tr>
+  <%- @cookies.to_a.each do |key, value| %>
+    <tr>
+      <td><%= key %></td>
+      <td><%= value %></td>
+    </tr>
+  <%- end %>
+</table>
+
+<style media="screen">
+  table, th, td {
+   border: 1px solid black;
+  }
+  
+  table {
+    width: 80%;
+  }
+</style>
